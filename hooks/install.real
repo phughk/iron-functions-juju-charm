@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import os
 import lib.utils as utils
 from subprocess import check_output, CalledProcessError
 from charmhelpers.fetch import (
@@ -15,12 +16,21 @@ apt_update()
 
 hookenv.status_set('maintenance', 'Installing support packages')
 # install git?
-apt_install(['golang-go', 'glide'])
+os.system("wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz")
+os.system("tar -xf go1.8.linux-amd64.tar.gz -C /usr/local/")
+os.system("echo 'export GOROOT=/usr/local/go' >> ~/.bashrc")
+os.system("echo 'export GOPATH=$HOME/go' >> ~/.bashrc")
+os.system("echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc")
+
+apt_install(['glide'])
 
 hookenv.status_set('maintenance', 'Cloning source')
-# git clone https://github.com/iron-io/functions.git
+os.system("mkdir -p go/src/github.com/iron-io/")
+os.chdir("go/src/github.com/iron-io/")
+os.system("git clone https://github.com/iron-io/functions.git")
+os.chdir("functions")
 hookenv.status_set('maintenance', 'Configuring installation')
-# rename folder from functions to src/github.com/iron-io/functions
-# export GOPATH=`pwd`
 hookenv.status_set('maintenance', 'Installing service')
-# make install
+os.system("make build")
+os.system('./functions')
+hookenv.status_set('maintenance', 'Completed')
