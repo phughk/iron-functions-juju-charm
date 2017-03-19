@@ -1,7 +1,7 @@
 # Overview
 
-Describe the intended usage of this charm and anything unique about how this
-charm relates to others here.
+This is a Canonical juju charm used to bring up iron-io/functions, an Open
+Source FaaS solution.
 
 This README will be displayed in the Charm Store, it should be either Markdown
 or RST. Ideal READMEs include instructions on how to use the charm, expected
@@ -22,7 +22,7 @@ in the Juju GUI.
 
 Step by step instructions on using the charm:
 
-juju deploy servicename
+juju deploy iron-functions
 
 and so on. If you're providing a web service or something that the end user
 needs to go to, tell them here, especially if you're deploying a service that
