@@ -28,8 +28,11 @@ Feel free to email me at phkaznowski ([<at<[[( gmail )]]>> Funky formatting to a
 ## Upstream Project Name
 
 The functions service can be found at https://github.com/iron-io/functions
+
 The functions website can be found at https://www.iron.io/
-NOTE I am not affiliated with iron or functions
+
+NOTE I am not affiliated with iron-io or functions
+
 Issues are tracked on the github of this project https://github.com/phughk/iron-functions-juju-charm
 
 [icon guidelines]: https://jujucharms.com/docs/stable/authors-charm-icon
