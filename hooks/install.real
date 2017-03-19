@@ -21,7 +21,7 @@ os.system("echo 'export GOROOT=/usr/local/go' >> ~/.bashrc")
 os.system("echo 'export GOPATH=$HOME/go' >> ~/.bashrc")
 os.system("echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc")
 
-apt_install(['glide'])
+apt_install(['glide', 'git'])
 
 hookenv.status_set('maintenance', 'Cloning source')
 os.system("mkdir -p go/src/github.com/iron-io/")

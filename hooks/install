@@ -17,4 +17,5 @@ for dep in ${DEPS[@]}; do
     check_and_install ${PYTHON} ${dep}
 done
 
+pip install -r pip-requirements.txt
 exec ./hooks/install.real
