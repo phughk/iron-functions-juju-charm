@@ -14,13 +14,6 @@ add_source('ppa:masterminds/glide')
 apt_update()
 
 hookenv.status_set('maintenance', 'Installing support packages')
-# install git?
-os.system("wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz")
-os.system("tar -xf go1.8.linux-amd64.tar.gz -C /usr/local/")
-os.system("echo 'export GOROOT=/usr/local/go' >> ~/.bashrc")
-os.system("echo 'export GOPATH=$HOME/go' >> ~/.bashrc")
-os.system("echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.bashrc")
-
 apt_install(['glide', 'git'])
 
 hookenv.status_set('maintenance', 'Cloning source')
@@ -30,6 +23,7 @@ os.system("git clone https://github.com/iron-io/functions.git")
 os.chdir("functions")
 hookenv.status_set('maintenance', 'Configuring installation')
 hookenv.status_set('maintenance', 'Installing service')
+os.system("make")
 os.system("make build")
 os.system('./functions')
 hookenv.status_set('maintenance', 'Completed')

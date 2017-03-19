@@ -5,17 +5,23 @@
 declare -a DEPS=('apt' 'netaddr' 'netifaces' 'pip' 'yaml')
 
 check_and_install() {
-    pkg="${1}-${2}"
-    if ! dpkg -s ${pkg} 2>&1 > /dev/null; then
-        apt-get -y install ${pkg}
-    fi
+	pkg="${1}-${2}"
+	if ! dpkg -s ${pkg} 2>&1 > /dev/null; then
+		apt-get -y install ${pkg}
+	fi
 }
 
 PYTHON="python"
 
 for dep in ${DEPS[@]}; do
-    check_and_install ${PYTHON} ${dep}
+	check_and_install ${PYTHON} ${dep}
 done
+
+wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz
+tar -xf go1.8.linux-amd64.tar.gz -C /usr/local/
+export GOROOT=/usr/local/go
+export GOPATH=$(pwd)/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 pip install -r pip-requirements.txt
 exec ./hooks/install.real
