@@ -3,6 +3,9 @@
 This is a Canonical juju charm used to bring up iron-io/functions, an Open
 Source FaaS solution.
 
+This is a precursor to creating a juju charm for Openstack Picasso, as it also
+uses iron-functions.
+
 This README will be displayed in the Charm Store, it should be either Markdown
 or RST. Ideal READMEs include instructions on how to use the charm, expected
 usage, and charm features that your audience might be interested in. For an
