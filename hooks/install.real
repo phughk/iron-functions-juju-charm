@@ -1,6 +1,5 @@
 #!/usr/bin/python
 import os
-import lib.utils as utils
 from subprocess import check_output, CalledProcessError
 from charmhelpers.fetch import (
     apt_install,

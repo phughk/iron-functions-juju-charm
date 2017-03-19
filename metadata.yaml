@@ -14,9 +14,9 @@ subordinate: false
 provides:
   faas:
     interface: iron-functions
-requires:
-  database:
-    interface: mysql
+#requires:
+  #database:
+    #interface: mysql
 #peers:
   #peer-relation:
     #interface: interface-name
