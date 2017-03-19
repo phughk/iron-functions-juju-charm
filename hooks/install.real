@@ -1,0 +1,26 @@
+#!/usr/bin/python
+import lib.utils as utils
+from subprocess import check_output, CalledProcessError
+from charmhelpers.fetch import (
+    apt_install,
+    apt_update,
+    add_source
+)
+
+from charmhelpers.core import hookenv
+
+hookenv.status_set('maintenance', 'Setting up additional sources')
+add_source('ppa:masterminds/glide')
+apt_update()
+
+hookenv.status_set('maintenance', 'Installing support packages')
+# install git?
+apt_install(['golang-go', 'glide'])
+
+hookenv.status_set('maintenance', 'Cloning source')
+# git clone https://github.com/iron-io/functions.git
+hookenv.status_set('maintenance', 'Configuring installation')
+# rename folder from functions to src/github.com/iron-io/functions
+# export GOPATH=`pwd`
+hookenv.status_set('maintenance', 'Installing service')
+# make install
