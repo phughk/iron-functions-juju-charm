@@ -1,8 +1,11 @@
 name: iron-functions
-summary: <Fill in summary here>
-maintainer: Hugh <Hugh@Hugh-Desktop>
+summary: charm to bring up iron-io functions FaaS
+maintainer: Hugh Kaznowski <phkaznowski+ironfunctionscharm _at\ gmail>
 description: |
-  <Multi-line description here>
+  iron-io has created an opensource implementation of a Function as a Service (FaaS)
+  service. It supports the AWS lambda format and has a spin off project for
+  Openstack called Picasso. This charm is being written precursively to
+  an Openstack Picasso charm
 tags:
   # Replace "misc" with one or more whitelisted tags from this list:
   # https://jujucharms.com/docs/stable/authors-charm-metadata
@@ -10,10 +13,10 @@ tags:
 subordinate: false
 provides:
   provides-relation:
-    interface: interface-name
-requires:
-  requires-relation:
-    interface: interface-name
-peers:
-  peer-relation:
-    interface: interface-name
+    interface: iron-functions
+#requires:
+  #requires-relation:
+    #interface: mysql
+#peers:
+  #peer-relation:
+    #interface: interface-name
