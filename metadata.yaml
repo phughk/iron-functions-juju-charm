@@ -1,6 +1,6 @@
 name: iron-functions
 summary: charm to bring up iron-io functions FaaS
-maintainer: Hugh Kaznowski <phkaznowski+ironfunctionscharm _at\ gmail>
+maintainer: Hugh Kaznowski <phkaznowski@gmail.com>
 description: |
   iron-io has created an opensource implementation of a Function as a Service (FaaS)
   service. It supports the AWS lambda format and has a spin off project for
@@ -12,11 +12,11 @@ tags:
   - misc
 subordinate: false
 provides:
-  provides-relation:
+  faas:
     interface: iron-functions
-#requires:
-  #requires-relation:
-    #interface: mysql
+requires:
+  database:
+    interface: mysql
 #peers:
   #peer-relation:
     #interface: interface-name

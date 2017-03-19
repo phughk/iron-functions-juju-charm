@@ -1,1 +1,2 @@
 includes: ['layer:basic']  # if you use any interfaces, add them here
+repo: https://github.com/phughk/iron-functions-juju-charm.git
